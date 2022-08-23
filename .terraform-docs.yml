@@ -1,0 +1,75 @@
+formatter: "markdown table"
+
+version: ""
+
+recursive:
+  enabled: false
+  path: modules
+
+sections:
+  hide-all: false
+  show-all: true
+
+content: |-
+  ## Table of content
+
+  - [Example of usage](#example-of-usage)
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Modules](#modules)
+  - [Resources](#resources)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
+  - [Authors](#authors)
+
+  ## Example of usage
+
+  ```hcl
+  {{ include "examples/main.tf" }}
+  ```
+
+  {{ .Requirements }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Footer }}
+
+  ## License
+  Apache-2.0 Licensed. See [LICENSE](https://github.com/florentio/terraform-aws-iam-role/blob/main/LICENSE).
+
+output:
+  file: README.md
+  mode: inject
+  template: |-
+    <!-- BEGIN_TERRAFORM_DOCS -->
+    {{ .Content }}
+    <!-- END_TERRAFORM_DOCS -->
+
+output-values:
+  enabled: false
+  from: ""
+
+sort:
+  enabled: true
+  by: name
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: true
+  escape: true
+  hide-empty: false
+  html: true
+  indent: 2
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
